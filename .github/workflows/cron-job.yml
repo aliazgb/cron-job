@@ -2,8 +2,7 @@ name: Run Cron Job
 
 on:
   schedule:
-    - cron: "*/5 * * * *"  # هر 5 دقیقه اجرا میشه
-  workflow_dispatch:        # هنوز میتونی دستی اجراش کنی
+    - cron: "*/5 * * * *"  
 
 jobs:
   run-node-cron:
@@ -18,7 +17,6 @@ jobs:
         with:
           node-version: "20"
 
-      # نصب وابستگی‌ها
       - name: Install dependencies
         run: npm ci  # یا npm install
 
