@@ -2,19 +2,26 @@ name: Run Cron Job
 
 on:
   schedule:
-    - cron: "*/5 * * * *" 
-  workflow_dispatch: 
+    - cron: "*/5 * * * *"  # هر 5 دقیقه اجرا میشه
+  workflow_dispatch:        # هنوز میتونی دستی اجراش کنی
 
 jobs:
   run-node-cron:
     runs-on: ubuntu-latest
     steps:
+      # چک کردن کدهای پروژه
       - uses: actions/checkout@v3
+
+      # نصب Node.js
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "20"
+
+      # نصب وابستگی‌ها
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # یا npm install
+
+      # اجرای فایل cron
       - name: Run Cron Job
         run: node cron-job.js
