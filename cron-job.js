@@ -47,7 +47,7 @@ async function run() {
     console.log("OTP:", otpData);
 
     const getPostsRes = await fetch(
-      "https://api.myblog-app.online/api/post/list"
+      "https://server-xb4n.onrender.com/hotels"
     );
     const getFooterRes = await fetch("https://server-xb4n.onrender.com/footer");
     const posts = await getPostsRes.json();
