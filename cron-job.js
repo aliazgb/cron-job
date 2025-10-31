@@ -45,6 +45,16 @@ async function run() {
 
     console.log("Signin:", signinData);
     console.log("OTP:", otpData);
+
+    const getPostsRes = await fetch(
+      "https://api.myblog-app.online/api/post/list"
+    );
+    const getFooterRes = await fetch("https://server-xb4n.onrender.com/footer");
+    const posts = await getPostsRes.json();
+    const footer = await getFooterRes.json();
+
+    console.log("Posts:", posts);
+    console.log("Footer:", footer);
   } catch (error) {
     console.error("Error:", error.message);
   }
